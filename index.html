@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Levy Portofolio — Creative & Engineering</title>
+  <link rel="icon" type="image/png" href="foto/download.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* =====================================================
+       🎨 MUDAH DI-EDIT — WARNA UTAMA WEBSITE
+    ===================================================== */
+    :root {
+      --black: #111111;
+      --white: #ffffff;
+      --cream: #eeeeeb;
+      --light: #f6f6f3;
+      --gray: #777777;
+      --dark-gray: #333333;
+      --line: #ddddda;
+
+      --container: 1320px;
+      --transition: .25s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--black);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 80px));
+      margin: auto;
+    }
+
+    /* =====================================================
+       TOP BAR
+    ===================================================== */
+    .topbar {
+      height: 28px;
+      background: var(--black);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* =====================================================
+       NAVBAR PORTOFOLIO
+       MENU: HOME / ABOUT / SKILLS / PROJECTS / CONTACT
+    ===================================================== */
+    .navbar {
+      height: 78px;
+      padding: 0 5%;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-menu a {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      width: 0;
+      height: 1px;
+      background: var(--black);
+      transition: var(--transition);
+    }
+
+    .nav-menu a:hover::after,
+    .nav-menu a.active::after {
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-align: center;
+    }
+
+    .nav-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-social {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    .nav-contact {
+      background: var(--black);
+      color: var(--white);
+      padding: 11px 17px;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      transition: var(--transition);
+    }
+
+    .nav-contact:hover {
+      transform: translateY(-2px);
+      background: #333;
+    }
+
+    /* =====================================================
+       HERO
+       GANTI FOTO HERO DI URL BACKGROUND .hero
+    ===================================================== */
+    .hero {
+      min-height: 650px;
+      background:
+        linear-gradient(90deg,
+          rgba(238,238,235,.98) 0%,
+          rgba(238,238,235,.90) 34%,
+          rgba(238,238,235,.20) 72%,
+          rgba(238,238,235,.05) 100%),
+        url(foto/leppi.png)
+        center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-content {
+      width: min(var(--container), 90%);
+      margin: auto;
+      padding: 70px 0;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .35em;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    .hero-title {
+      font-size: clamp(80px, 12vw, 180px);
+      line-height: .82;
+      letter-spacing: -.08em;
+      font-weight: 800;
+      max-width: 900px;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-subtitle {
+      margin-top: 32px;
+      max-width: 390px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--dark-gray);
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-top: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 14px 23px;
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      transition: var(--transition);
+    }
+
+    .btn:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
+
+    .text-link {
+      font-size: 9px;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 5px;
+    }
+
+    .hero-number {
+      position: absolute;
+      right: 5%;
+      bottom: 50px;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .25em;
+      line-height: 1.8;
+    }
+
+    /* =====================================================
+       INTRO / ABOUT
+    ===================================================== */
+    .about {
+      padding: 95px 0;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .section-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .3em;
+      color: #aaa;
+    }
+
+    .about-title {
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: .95;
+      letter-spacing: -.05em;
+      margin-top: 20px;
+    }
+
+    .about-text {
+      font-size: 14px;
+      line-height: 1.9;
+      color: #c6c6c6;
+      max-width: 680px;
+    }
+
+    .about-text + .about-text {
+      margin-top: 20px;
+    }
+
+    /* =====================================================
+       SKILLS
+    ===================================================== */
+    .skills {
+      padding: 90px 0;
+      background: var(--light);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(35px, 5vw, 65px);
+      line-height: .9;
+      letter-spacing: -.06em;
+    }
+
+    .section-heading p {
+      max-width: 280px;
+      font-size: 10px;
+      line-height: 1.7;
+      color: var(--gray);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+    }
+
+    .skill {
+      padding: 30px 25px 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .skill:not(:last-child) {
+      border-right: 1px solid var(--line);
+      padding-right: 25px;
+    }
+
+    .skill:not(:first-child) {
+      padding-left: 25px;
+    }
+
+    .skill-number {
+      font-size: 9px;
+      color: var(--gray);
+      margin-bottom: 30px;
+    }
+
+    .skill h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .skill p {
+      font-size: 10px;
+      line-height: 1.7;
+      color: var(--gray);
+    }
+
+    /* =====================================================
+       PROJECTS
+       GANTI FOTO + JUDUL + DESKRIPSI DI BAGIAN PROJECT CARD
+    ===================================================== */
+    .projects {
+      padding: 95px 0;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px 25px;
+    }
+
+    .project-card {
+      cursor: pointer;
+    }
+
+    .project-image-wrap {
+      overflow: hidden;
+      background: var(--cream);
+      position: relative;
+    }
+
+    .project-image {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.04);
+    }
+
+    .project-number {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--white);
+      padding: 8px 11px;
+      font-size: 8px;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .project-info {
+      padding-top: 17px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+    }
+
+    .project-info h3 {
+      font-size: 20px;
+      letter-spacing: -.02em;
+      margin-bottom: 8px;
+    }
+
+    .project-info p {
+      max-width: 480px;
+      font-size: 10px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .project-tag {
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      align-self: start;
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 4px;
+    }
+
+    /* =====================================================
+       EXPERIENCE / EDUCATION
+    ===================================================== */
+    .experience {
+      padding: 90px 0;
+      background: var(--cream);
+    }
+
+    .timeline {
+      margin-top: 45px;
+      border-top: 1px solid #ccc;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr auto;
+      gap: 30px;
+      padding: 28px 0;
+      border-bottom: 1px solid #ccc;
+      align-items: start;
+    }
+
+    .timeline-date {
+      font-size: 9px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .timeline-item h3 {
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .timeline-item p {
+      font-size: 10px;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .timeline-type {
+      font-size: 8px;
+      text-transform: uppercase;
+      border: 1px solid #aaa;
+      padding: 7px 10px;
+    }
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
+    .contact {
+      padding: 110px 0;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 80px;
+      align-items: end;
+    }
+
+    .contact h2 {
+      font-size: clamp(50px, 8vw, 105px);
+      line-height: .82;
+      letter-spacing: -.07em;
+    }
+
+    .contact-description {
+      color: #aaa;
+      font-size: 11px;
+      line-height: 1.8;
+      margin-top: 30px;
+      max-width: 420px;
+    }
+
+    .contact-links {
+      border-top: 1px solid #444;
+    }
+
+    .contact-links a {
+      display: flex;
+      justify-content: space-between;
+      padding: 17px 0;
+      border-bottom: 1px solid #444;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .contact-links a:hover {
+      padding-left: 8px;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      border-top: 1px solid #333;
+      padding: 25px 5%;
+    }
+
+    .footer-inner {
+      max-width: var(--container);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    footer p {
+      font-size: 8px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+    @media (max-width: 950px) {
+      .navbar {
+        grid-template-columns: auto 1fr auto;
+        padding: 0 25px;
+      }
+
+      .nav-menu {
+        gap: 16px;
+      }
+
+      .nav-menu a:nth-child(n+4) {
+        display: none;
+      }
+
+      .nav-social {
+        display: none;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skill:nth-child(2) {
+        border-right: 0;
+      }
+
+      .skill:nth-child(3) {
+        padding-left: 0;
+      }
+
+      .project-grid {
+        gap: 45px 18px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: calc(100% - 40px);
+      }
+
+      .navbar {
+        height: 68px;
+        grid-template-columns: auto 1fr auto;
+        padding: 0 20px;
+      }
+
+      .nav-menu {
+        gap: 12px;
+      }
+
+      .nav-menu a {
+        font-size: 7px;
+      }
+
+      .nav-menu a:nth-child(n+3) {
+        display: none;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .nav-contact {
+        padding: 9px 11px;
+        font-size: 7px;
+      }
+
+      .hero {
+        min-height: 560px;
+      }
+
+      .hero-content {
+        width: calc(100% - 40px);
+      }
+
+      .hero-title {
+        font-size: 74px;
+      }
+
+      .hero-subtitle {
+        font-size: 11px;
+        max-width: 280px;
+      }
+
+      .hero-number {
+        right: 20px;
+        bottom: 25px;
+      }
+
+      .about,
+      .skills,
+      .projects,
+      .experience {
+        padding: 65px 0;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill,
+      .skill:not(:first-child),
+      .skill:not(:last-child) {
+        padding: 25px 0;
+        border-right: 0;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-info {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .timeline-type {
+        width: fit-content;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 20px;
+      }
+
+      .footer-inner {
+        display: block;
+      }
+
+      .footer-inner p + p {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================================================
+       TOP BAR
+       GANTI TEKS DI SINI
+  ====================================================== -->
+  <div class="topbar">
+    LEVY PORTOFOLIO — CREATIVE / DESIGN / ENGINEERING
+  </div>
+
+  <!-- =====================================================
+       NAVBAR PORTOFOLIO
+       Kalau mau tambah menu, tinggal tambah <a>
+  ====================================================== -->
+  <header class="navbar">
+
+    <nav class="nav-menu">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+    </nav>
+
+    <a href="#home" class="logo">LEVY</a>
+
+    <div class="nav-right">
+      <a href="#contact" class="nav-social">Let's Talk</a>
+      <a href="#contact" class="nav-contact">Contact</a>
+    </div>
+
+  </header>
+
+  <!-- =====================================================
+       HERO
+       GANTI FOTO: ubah URL di .hero pada CSS
+  ====================================================== -->
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+
+        <p class="eyebrow">
+          Portfolio<br>
+          2026
+        </p>
+
+        <h1 class="hero-title">
+          <span>LEVY</span>
+          <span>PORTOFOLIO</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Creative designer with an interest in UI/UX, web design,
+          automotive, and manufacturing. Turning ideas into
+          clean and functional visual experiences.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="#about" class="text-link">About Me →</a>
+        </div>
+
+      </div>
+
+      <div class="hero-number">
+        Based in Indonesia<br>
+        Available for Projects
+      </div>
+    </section>
+
+    <!-- ===================================================
+         ABOUT
+    ==================================================== -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+
+        <div>
+          <p class="section-label">01 — About Me</p>
+          <h2 class="about-title">
+            DESIGN.<br>
+            CREATE.<br>
+            BUILD.
+          </h2>
+        </div>
+
+        <div>
+          <p class="about-text">
+            Halo, saya Muhammad Sahru Eka Syahlevy. Saya memiliki ketertarikan pada dunia
+            desain digital, UI/UX, web design, serta otomotif dan
+            manufaktur.
+          </p>
+
+          <p class="about-text">
+            Saya suka menggabungkan visual yang clean dengan
+            konsep yang fungsional. Bagi saya, sebuah desain bukan
+            cuma harus terlihat bagus, tetapi juga harus memiliki
+            tujuan dan mudah digunakan.
+          </p>
+
+          <p class="about-text">
+            Portfolio ini berisi beberapa project, konsep desain,
+            dan kemampuan yang sedang saya kembangkan.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================
+         SKILLS
+    ==================================================== -->
+    <section class="skills" id="skills">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <p class="section-label">02 — Skills</p>
+            <h2>WHAT I DO</h2>
+          </div>
+
+          <p>
+            Beberapa kemampuan yang saya gunakan dalam
+            membuat desain, website, dan project kreatif.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <article class="skill">
+            <p class="skill-number">01</p>
+            <h3>UI / UX Design</h3>
+            <p>
+              Membuat interface yang clean, modern,
+              terstruktur, dan mudah digunakan.
+            </p>
+          </article>
+
+          <article class="skill">
+            <p class="skill-number">02</p>
+            <h3>Web Design</h3>
+            <p>
+              Mendesain landing page, portfolio,
+              website produk, dan layout responsive.
+            </p>
+          </article>
+
+          <article class="skill">
+            <p class="skill-number">03</p>
+            <h3>Graphic Design</h3>
+            <p>
+              Membuat visual, poster, branding,
+              layout, dan berbagai kebutuhan desain.
+            </p>
+          </article>
+
+          <article class="skill">
+            <p class="skill-number">04</p>
+            <h3>Automotive</h3>
+            <p>
+              Memiliki ketertarikan pada otomotif,
+              engineering, sparepart, dan manufaktur.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         PROJECTS
+         🖼️ GANTI FOTO PROJECT DI BAGIAN SRC
+    ==================================================== -->
+    <section class="projects" id="projects">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <p class="section-label">03 — Selected Works</p>
+            <h2>MY PROJECTS</h2>
+          </div>
+
+          <p>
+            Beberapa project dan konsep yang bisa
+            dikembangkan menjadi portfolio.
+          </p>
+        </div>
+
+        <div class="project-grid">
+
+          <!-- PROJECT 01 -->
+          <article class="project-card">
+            <div class="project-image-wrap">
+              <span class="project-number">01</span>
+              <img
+                class="project-image"
+                src="foto/PPO.png"
+                alt="Web Design Project">
+            </div>
+
+            <div class="project-info">
+              <div>
+                <h3>My Web Design Project</h3>
+                <p>
+                  Konsep website dengan layout
+                  minimal, typography kuat, dan responsive design.
+                </p>
+              </div>
+              <span class="project-tag">Web Design</span>
+            </div>
+          </article>
+
+          <!-- PROJECT 02 -->
+          <article class="project-card">
+            <div class="project-image-wrap">
+              <span class="project-number">02</span>
+              <img
+                class="project-image"
+                src="foto/ATO.png"
+                alt="Automotive">
+            </div>
+
+            <div class="project-info">
+              <div>
+                <h3>Motorcycle</h3>
+                <p>
+                  Konsep desain kendaraan bermotor yang saya
+                  pakai.
+                </p>
+              </div>
+              <span class="project-tag">Automotive</span>
+            </div>
+          </article>
+
+          <!-- PROJECT 03 -->
+          <article class="project-card">
+            <div class="project-image-wrap">
+              <span class="project-number">03</span>
+              <img
+                class="project-image"
+                src="foto/PD.png"
+                alt="Perfume Website">
+            </div>
+
+            <div class="project-info">
+              <div>
+                <h3>Automotive Product Design</h3>
+                <p>
+                  Konsep desain komponen sepeda motor dengan
+                 fokus pada fungsi, estetika, dan detail produk.
+                </p>
+              </div>
+              <span class="project-tag">AUTOMOTIVE</span>
+            </div>
+          </article>
+
+          <!-- PROJECT 04 -->
+          <article class="project-card">
+            <div class="project-image-wrap">
+              <span class="project-number">04</span>
+              <img
+                class="project-image"
+                src="foto/ui.png"
+                alt="UI/UX DESIGN PROJECT">
+            </div>
+
+            <div class="project-info">
+              <div>
+                <h3>UI / UX</h3>
+                <p>
+                  Konsep aplikasi mobile untuk membantu 
+                  pengguna mengatur servis dan perawatan kendaraan..
+                </p>
+              </div>
+              <span class="project-tag">UI/UX DESIGN</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         EXPERIENCE / EDUCATION
+    ==================================================== -->
+    <section class="experience" id="experience">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <p class="section-label">04 — Journey</p>
+            <h2>EXPERIENCE</h2>
+          </div>
+
+          <p>
+            Pendidikan dan pengalaman yang menjadi bagian
+            dari perjalanan saya.
+          </p>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <span class="timeline-date">2025 — Now</span>
+            <div>
+              <h3>Politeknik Mitra Industri</h3>
+              <p>
+                Teknologi Rekayasa Manufaktur — mempelajari
+                engineering, proses manufaktur, dan pengembangan produk.
+              </p>
+            </div>
+            <span class="timeline-type">Education</span>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-date">2024 — 2025</span>
+            <div>
+              <h3>PT Indonesian Chemi-Con</h3>
+              <p>
+                Pengalaman PKL sebagai Parts Control,
+                mengenal lingkungan kerja industri dan proses pengelolaan parts.
+              </p>
+            </div>
+            <span class="timeline-type">Internship</span>
+          </div>
+
+          <div class="timeline-item">
+            <span class="timeline-date">2022 — 2025</span>
+            <div>
+              <h3>SMK Telekomunikasi Telesandi Bekasi</h3>
+              <p>
+                Teknik Komputer dan Jaringan serta pengembangan
+                kemampuan teknologi dan desain digital.
+              </p>
+            </div>
+            <span class="timeline-type">Education</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         CONTACT
+         GANTI LINK SOSIAL MEDIA DI BAGIAN INI
+    ==================================================== -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+
+        <div>
+          <p class="section-label">05 — Contact</p>
+
+          <h2>
+            LET'S<br>
+            WORK<br>
+            TOGETHER.
+          </h2>
+
+          <p class="contact-description">
+            Punya project, ide, atau sekadar ingin berdiskusi?
+            Hubungi saya melalui salah satu kontak di samping.
+          </p>
+        </div>
+
+        <div class="contact-links">
+          <!-- GANTI # DENGAN LINK ASLI LO -->
+          <a href="mailto:msahruekasyahlevy@Ggmail.com">
+            <span>Email</span>
+            <span>↗</span>
+          </a>
+
+          <a href="https://www.instagram.com/lepy_vyyy?stkn=a3lhZDlkeTExMHNo" target="_blank">
+            <span>Instagram</span>
+            <span>↗</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/muhammad-sahru-eka-syahlevy-40360437a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+            <span>LinkedIn</span>
+            <span>↗</span>
+          </a>
+
+          <a href="https://www.behance.net/lepii" target="_blank">
+            <span>Behance</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 Levy Portofolio</p>
+      <p>Designed & Built by Levy</p>
+    </div>
+  </footer>
+
+  <script>
+    // =====================================================
+    // NAVBAR ACTIVE STATE
+    // =====================================================
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-menu a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
